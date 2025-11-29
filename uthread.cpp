@@ -1,22 +1,10 @@
-/**
-* @file  uthread.cpp
-* @author chenxueyou
-* @version 0.1
-* @brief   :A asymmetric coroutine library for C++
-* History
-*      1. Date: 2014-12-12 
-*          Author: chenxueyou
-*          Modification: this file was created 
-*/
-
 #ifndef MY_UTHREAD_CPP
 #define MY_UTHREAD_CPP
 
 
 #include "uthread.h"
-//#include <stdio.h>
 
-void uthread_resume(schedule_t &schedule , int id)
+void uthread_resume(schedule_t &schedule , int id)		
 {
     if(id < 0 || id >= schedule.max_index){
         return;
