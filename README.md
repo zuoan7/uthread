@@ -1,4 +1,4 @@
-本项目是一个简易的协程库，是对如下原文的复现
+本项目是一个简易的协程库，所复现原文如下
 
 https://developer.aliyun.com/article/52886
 
