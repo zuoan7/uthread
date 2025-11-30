@@ -9,13 +9,13 @@
 #include <ucontext.h>
 #include <vector>
 
-#define DEFAULT_STACK_SZIE (1024*128)    //默认栈空间大小 128KB
+#define DEFAULT_STACK_SIZE (1024*128)    //默认栈空间大小 128KB
 #define MAX_UTHREAD_SIZE   1024          //最大线程数量
 
 //协程状态空间
 enum ThreadState{
     FREE,        //空闲状态，协程槽位未被使用
-    RUNNABLE,    //可运行状态，协程已创建但尚未开始执行
+    RUNNABLE,    //可运行状态，协程已创建正在等待执行
     RUNNING,     //运行状态，协程正在执行
     SUSPEND      //挂起状态，协程主动让出 CPU
 };
@@ -33,7 +33,7 @@ typedef struct uthread_t
     Fun func;                          // 协程要执行的目标函数
     void *arg;                         // 传递给目标函数的参数
     enum ThreadState state;            // 协程当前的生命周期状态
-    char stack[DEFAULT_STACK_SZIE];    // 协程独立的栈空间（每个协程128KB）
+    char stack[DEFAULT_STACK_SIZE];    // 协程独立的栈空间（每个协程128KB）
 }uthread_t;
 
 // 调度器结构体定义：管理所有协程的创建、调度和销毁
